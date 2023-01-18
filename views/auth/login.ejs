@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Simple Sidebar - Start Bootstrap Template</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="../../css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="../../css/simple-sidebar.css" rel="stylesheet">
+
+</head>
+
+<body class="bg-light">
+
+  <div class="px-3 py-3 text-center h3 text-white bg-orange ">Cafe Management System</div>
+
+  <div class="container ">
+    <div class="w-50 mt-5 pt-5 mx-auto">
+      <form class="border px-4 py-5" method="post">
+        <h4>LOGIN</h4>
+        <% if (typeof message !="undefined" ) { %>
+            <div class="alert alert-warning">
+                <%= message %>
+            </div>
+            <% } %>
+        <div class="form-group mt-3">
+          <label for="exampleInputEmail1">Email address</label>
+          <input type="email" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp"
+            placeholder="Enter email">
+        </div>
+        <div class="form-group mt-3">
+          <label for="exampleInputPassword1">Password</label>
+          <input type="password" class="form-control"  name="password" id="exampleInputPassword1" placeholder="Password">
+        </div>
+        <button type="submit" class="btn btn-orange text-white mt-3">Submit</button>
+      </form>
+    </div>
+  </div>
+
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="../../js/jquery.min.js"></script>
+  <script src="../../js/bootstrap.bundle.min.js"></script>
+
+  <!-- Menu Toggle Script -->
+  <script>
+    $("#menu-toggle").click(function (e) {
+      e.preventDefault();
+      $("#wrapper").toggleClass("toggled");
+    });
+  </script>
+
+</body>
+
+</html>

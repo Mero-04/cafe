@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title> CMS || <%= title %>
+    </title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../../css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="../../css/simple-sidebar.css" rel="stylesheet">
+    <link href="../../css/fontawesome.min.css" rel="stylesheet">
+    <link href="../../css/fontawesome.solid.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <div class="px-3 py-3 h3 text-white bg-orange ">Cafe Management System</div>
+
+    <div class="d-flex" id="wrapper">
+
+        <!-- Sidebar -->
+        <%- include ("../inc/sidebar") %>
+            <!-- /#sidebar-wrapper -->
+
+            <!-- Page Content -->
+            <div id="page-content-wrapper" class="bg-light">
+
+                <%- include ("../inc/nav") %>
+
+                    <div class="container bg-white shadow-lg my-3">
+                        <div class="d-flex justify-content-between  py-3 px-2 ">
+                            <h3>Manage Order</h3>
+                        </div>
+                    </div>
+
+                    <div class="container bg-white mt-4 py-3 shadow-lg details">
+                        <div class="d-flex justify-content-end">
+                            <button type="submit" class="btn btn-orange">Submit & Get Bill</button>
+                        </div>
+                        <div class="h5"><b>Customer Details:</b></div>
+                        <form action="" class="mb-4">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <input type="text" placeholder="Name*" name="name" class="px-2 py-3">
+                                </div>
+                                <div class="col-md-3">
+                                    <input type="text" placeholder="Email*" name="email" class="px-2 py-3">
+                                </div>
+                                <div class="col-md-3">
+                                    <input type="number" placeholder="Contact Number*" name="contactNum"
+                                        class="px-2 py-3">
+                                </div>
+                                <div class="col-md-3">
+                                    <select class="payMethod px-2 py-3" name="payMethod" id="">
+                                        <option value="0" selected>Payment Method*</option>
+                                        <option value="1">Cash</option>
+                                        <option value="2">Debit Card</option>
+                                        <option value="3">Credit Card</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="container bg-white mt-4 py-3 shadow-lg details">
+                        <div class="h5"><b> Select Product:</b></div>
+                        <form action="" class="mb-4">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <select class="payMethod px-2 py-3" name="selectMenu" id="common">
+                                        <option value="0" selected>Select Menu*</option>
+                                        <% menus.forEach(menu=> { %>
+                                            <option value="<%= menu.name %>">
+                                                <%= menu.name %>
+                                            </option>
+                                            <% }) %>
+                                    </select>
+                                </div>
+                                <div class="col-md-3">
+                                    <select class="payMethod px-2 py-3" name="category" id="category">
+                                        <option value="0" selected>Select Food*</option>
+                                        <% foods.forEach(food=> { %>
+                                            <option value="<%= food.name %>">
+                                                <%= food.name %>
+                                            </option>
+                                            <% }) %>
+                                    </select>
+                                </div>
+                                <div class="col-md-2">
+                                    <input type="number" placeholder="Price*" name="price" class="px-2 py-3">
+                                </div>
+                                <div class="col-md-2">
+                                    <input type="number" placeholder="Quantity*" name="quantity" class="px-2 py-3">
+                                </div>
+                                <div class="col-md-2">
+                                    <input type="number" placeholder="Total*" name="total" class="px-2 py-3">
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <button type="submit" class="btn btn-orange mt-3 h6">Add</button>
+                                <div class="mt-3 h6 ">Total Amount: <b>0</b></div>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="container mt-4 bg-white shadow-lg">
+                        <table class="table mt-5">
+                            <thead>
+                                <tr class="text-muted">
+                                    <th scope="col">#</th>
+                                    <th scope="col">Menu</th>
+                                    <th scope="col">Food</th>
+                                    <th scope="col">Price</th>
+                                    <th scope="col">Quantity</th>
+                                    <th scope="col">Total</th>
+                                    <th scope="col">Delete</th>
+                                </tr>
+                            </thead>
+
+                        </table>
+                    </div>
+
+                    <!-- /#page-content-wrapper -->
+
+            </div>
+            <!-- /#wrapper -->
+
+            <!-- Bootstrap core JavaScript -->
+            <script src="../../js/jquery.min.js"></script>
+            <script src="../../js/bootstrap.bundle.min.js"></script>
+
+            <!-- Menu Toggle Script -->
+            <script>
+                $("#menu-toggle").click(function (e) {
+                    e.preventDefault();
+                    $("#wrapper").toggleClass("toggled");
+                });
+            </script>
+
+</body>
+
+</html>

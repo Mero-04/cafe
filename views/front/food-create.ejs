@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title> CMS || <%= title %> </title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../../css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="../../css/simple-sidebar.css" rel="stylesheet">
+
+</head>
+
+<body class="bg-light">
+
+    <div class="px-3 py-3 h3 text-white bg-orange ">Cafe Management System</div>
+
+    <div class="d-flex " id="wrapper">
+
+        <!-- Sidebar -->
+            <!-- /#sidebar-wrapper -->
+
+            <!-- Page Content -->
+            <div id="page-content-wrapper" >
+
+
+                <div class="container bg-white shadow-lg my-3">
+                    <div class="d-flex justify-content-between  py-3 px-2 ">
+                        <h3>Add Food</h3>
+                    </div>
+                </div>
+
+                <div class="container mt-4 bg-white shadow-lg p-5">
+                    <% if (typeof message !="undefined" ) { %>
+                        <div class="alert alert-warning">
+                            <%= message %>
+                        </div>
+                        <% } %>
+                    <form action="" class="border px-4 py-5" method="post">
+                        <div class="form-group mt-3">
+                            <label for="name" class="h6" >Food Name</label>
+                            <input type="text" class="form-control" name="name"
+                              placeholder="Enter name" required>
+                          </div>
+                          <div class="form-group mt-3">
+                            <label for="description" class="h6" >Food Description</label>
+                            <input type="text" class="form-control" name="description"
+                              placeholder="Enter description" required>
+                          </div>
+                          <div class="form-group mt-3">
+                            <label for="price" class="h6" >Food Price</label>
+                            <input type="text" class="form-control" name="price"
+                              placeholder="Enter price" required>
+                          </div>
+                          <div class="form-group mt-3">
+                            <label for="menuId" class="h6" >Select Menu</label>
+                            <select class="form-select" name="menuId" aria-label="Default select example">
+                                <option selected>Select</option>
+                                <% menus.forEach(menu => { %>
+                                    <option value="<%= menu.id %>"><%= menu.name %> </option>
+                                <% }) %>
+                              </select>
+                          </div>
+                          <button class="btn btn-orange mt-3">Addd</button>
+                    </form>
+                </div>
+
+                <!-- /#page-content-wrapper -->
+
+            </div>
+            <!-- /#wrapper -->
+
+            <!-- Bootstrap core JavaScript -->
+            <script src="../../js/jquery.min.js"></script>
+            <script src="../../js/bootstrap.bundle.min.js"></script>
+
+            <!-- Menu Toggle Script -->
+            <script>
+                $("#menu-toggle").click(function (e) {
+                    e.preventDefault();
+                    $("#wrapper").toggleClass("toggled");
+                });
+            </script>
+
+</body>
+
+</html>
